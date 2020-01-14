@@ -1,0 +1,13 @@
+[
+  {
+    "name": "SmsPlugin",
+    "version": "1.2.0",
+    "class": "SmsPlugin",
+    "requires": [
+      {
+        "@twilio/flex-ui": "^1.9.0"
+      }
+    ],
+    "src": "http://127.0.0.1:8085"
+  }
+]
