@@ -25,7 +25,12 @@ const input = css`
 
 export class OutboundSmsView extends React.Component {
   
-  
+  // Update these values to null or provide default values
+  //   Name = Customer Name
+  //   To = Customer E.164 phone number
+  //   Email = Customer email address
+  //   Crmid = Customer CRM Object record id
+  //   From = Twilio E.164 number for sending SMS
   state = {
     Name: 'Customer Name',
     To: '+1NxxNxxxxx',
