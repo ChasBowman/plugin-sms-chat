@@ -27,11 +27,11 @@ export class OutboundSmsView extends React.Component {
   
   
   state = {
-    Name: 'Jack Callan',
-    To: '+13175136497',
-    Email: 'JackCDemo@gmail.com',
+    Name: 'Customer Name',
+    To: '+1NxxNxxxxx',
+    Email: 'Customer Email',
     Crmid: '101',
-    From: '+18573056207',
+    From: '+1NxxNxxxxx',
     Message: '',
     WorkerEmail: this.props.manager.workerClient.attributes.email,
     WorkerUri: this.props.manager.workerClient.attributes.contact_uri
