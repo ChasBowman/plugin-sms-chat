@@ -25,18 +25,13 @@ const input = css`
 
 export class OutboundSmsView extends React.Component {
   
-  // Update these values to null or provide default values
-  //   Name = Customer Name
-  //   To = Customer E.164 phone number
-  //   Email = Customer email address
-  //   Crmid = Customer CRM Object record id
-  //   From = Twilio E.164 number for sending SMS
+  
   state = {
-    Name: 'Customer Name',
-    To: '+1NxxNxxxxx',
-    Email: 'Customer Email',
+    Name: 'Jack Callan',
+    To: '+13175136497',
+    Email: 'JackCDemo@gmail.com',
     Crmid: '101',
-    From: '+1NxxNxxxxx',
+    From: '+18573056207',
     Message: '',
     WorkerEmail: this.props.manager.workerClient.attributes.email,
     WorkerUri: this.props.manager.workerClient.attributes.contact_uri
@@ -61,13 +56,15 @@ export class OutboundSmsView extends React.Component {
   // Calls a function to create a task using FlexFlows (with Proxy and Chat Services)
   startChat(fromNumber, toName, toNumber, toEmail, toCrmid) {
     console.log ('----- Running startChat -----');
-    console.log(`From: ${fromNumber} Name: ${toName} Number: ${toNumber} Email: ${toEmail} CRMID: ${toCrmid}`);
+    console.log(`From: ${fromNumber} Name: ${toName} Number: ${toNumber} Email: ${toEmail} CRMID: ${toCrmid} Contact URI: ${this.state.WorkerUri}`);
+    console.log(`Calling Twilio Function: https://${this.props.manager.configuration.serviceBaseUrl}/create-sms-chat`);
     const name = encodeURIComponent(toName);
     const phone = encodeURIComponent(toNumber);
     const email = encodeURIComponent(toEmail);
     const crmid = encodeURIComponent(toCrmid);
     const from = encodeURIComponent(fromNumber);
-    const smsURL = `https://${this.props.manager.configuration.serviceBaseUrl}create-sms-chat?fromNumber=${from}&toName=${name}&toNumber=${phone}&email=${email}&crmid=${crmid}`;
+    const WorkerUri = encodeURIComponent(this.state.WorkerUri)
+    const smsURL = `https://${this.props.manager.configuration.serviceBaseUrl}/create-sms-chat?fromNumber=${from}&toName=${name}&toNumber=${phone}&email=${email}&crmid=${crmid}&workerUri=${WorkerUri}`;
     fetch(smsURL)
       .then(result => result.json())
       .then(result => {
