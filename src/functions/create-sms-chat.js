@@ -1,5 +1,6 @@
 /*
-  Function to setup FlexFlow, Proxy Session, and Chat Session for outbound SMS Chat  
+    Reference: https://github.com/trogers-twilio/function-create-direct-to-task-sms-chat
+    
     Inputs:
         fromNumber
         toName
@@ -98,7 +99,7 @@ const createChatChannelWithTask = (
     crmid: crmid,
     email: email,
     crmurl: `https://app.hubspot.com/contacts/4971620/contacts/${crmid}`,
-    workerUri: workerUri,
+    targetWorker: workerUri,
     autoAnswer: true,
   };
   urlParams.append('TaskAttributes', JSON.stringify(taskAttributes));

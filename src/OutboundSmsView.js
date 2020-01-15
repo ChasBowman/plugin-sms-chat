@@ -27,11 +27,11 @@ export class OutboundSmsView extends React.Component {
   
   
   state = {
-    Name: 'Jack Callan',
-    To: '+13175136497',
-    Email: 'JackCDemo@gmail.com',
+    Name: 'Customer Name',
+    To: '+NxxNxxxxxx',
+    Email: 'customer.email@example.com',
     Crmid: '101',
-    From: '+18573056207',
+    From: '+NxxNxxxxxx',
     Message: '',
     WorkerEmail: this.props.manager.workerClient.attributes.email,
     WorkerUri: this.props.manager.workerClient.attributes.contact_uri
@@ -92,7 +92,7 @@ export class OutboundSmsView extends React.Component {
                 <Grid item xs={12}>            
                 <TextField
                     id='FromNumber'
-                    label='From Number'
+                    label='Twilio Number (E.164)'
                     css={input}
                     value={this.state.From}
                     onChange={this.handleChange('From')}
@@ -110,7 +110,7 @@ export class OutboundSmsView extends React.Component {
                   />
                   <TextField
                     id='To'
-                    label='To (E.164 format)'
+                    label='Customer Number(E.164)'
                     css={input}
                     value={this.state.To}
                     onChange={this.handleChange('To')}
@@ -128,7 +128,7 @@ export class OutboundSmsView extends React.Component {
                   />
                   <TextField
                     id='CRM ID'
-                    label='CRM ID'
+                    label='CRM Record ID'
                     css={input}
                     value={this.state.Crmid}
                     onChange={this.handleChange('Crmid')}
