@@ -41,9 +41,8 @@ export class OutboundSmsView extends React.Component {
   startNotification(fromNumber, toNumber, smsMessage) {
     console.log ('----- Running startNotification -----');
     console.log(`Phone: ${toNumber} From: ${fromNumber} Message: ${smsMessage}`);
-    console.log(`Manager: `);
-    console.log(this.props.manager.configuration.serviceBaseUrl);
-    const smsURL = `https://${this.props.manager.configuration.serviceBaseUrl}send-sms?toNumber=${encodeURI(toNumber)}&message=${encodeURI(smsMessage)}`;
+    console.log(`Calling Twilio Function: https://${this.props.manager.configuration.serviceBaseUrl}/send-sms`);
+    const smsURL = `https://${this.props.manager.configuration.serviceBaseUrl}/send-sms?toNumber=${encodeURI(toNumber)}&message=${encodeURI(smsMessage)}`;
     fetch(smsURL)
       .then(result => result.json())
       .then(result => {
